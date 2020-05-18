@@ -146,7 +146,7 @@
                                 <div id="submenu-1" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="dashboard-finance.html">Nuevo Cliente</a>
+                                            <a class="nav-link" href="{{ route('clients') }}">Nuevo Cliente</a>
                                         </li>  
                                         <li class="nav-item">
                                             <a class="nav-link" href="dashboard-sales.html">Ver/Editar Cliente</a>
@@ -390,7 +390,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
 
-        @yield('contentDashboard')
+        @yield('contentMenu')
 
 
             <!-- ============================================================== -->

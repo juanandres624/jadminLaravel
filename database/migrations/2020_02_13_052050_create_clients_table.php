@@ -17,8 +17,9 @@ class CreateClientsTable extends Migration
             $table->bigIncrements('id');
             $table->string('clientName');
             $table->string('clientLastName');
-            $table->string('clientDocNumber',10);
-            $table->string('clientEmail');
+            $table->string('clientDocNumber',10)->unique();
+            $table->date('clientBirthDate');
+            $table->string('clientEmail')->unique();
             $table->string('clientPhoneNumber');
             $table->string('clientCellPhoneNumber');
             $table->string('clientPersonalAddress');

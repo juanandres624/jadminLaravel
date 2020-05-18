@@ -1,7 +1,7 @@
 @extends('layouts.dashboardMenu')
 
 
-@section('contentDashboard')
+@section('contentMenu')
 
 <div class="dashboard-ecommerce">
                 <div class="container-fluid dashboard-content ">
