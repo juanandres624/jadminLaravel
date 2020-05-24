@@ -13,10 +13,16 @@ class DocumentType extends Migration
      */
     public function up()
     {
-        Schema::create('documentType', function (Blueprint $table) {
+        Schema::create('MngDocumentType', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('document');
+            $table->string('documentDescription');
+            $table->unsignedBigInteger('statusType_id');
             $table->timestamps();
+
+            $table->foreign('statusType_id')
+            ->references('id')
+            ->on('MngStatusType')
+            ->onDelete('cascade'); 
         });
 
     }

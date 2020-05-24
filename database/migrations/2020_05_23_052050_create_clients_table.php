@@ -13,20 +13,39 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('AsdClients', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('clientName');
             $table->string('clientLastName');
-            $table->string('clientDocNumber',10)->unique();
             $table->date('clientBirthDate');
+            $table->date('clientGender');
+            $table->unsignedBigInteger('documentType_id');
+            $table->unsignedBigInteger('genderType_id');
+            $table->string('clientDocNumber',10)->unique();
             $table->string('clientEmail')->unique();
             $table->string('clientPhoneNumber');
             $table->string('clientCellPhoneNumber');
             $table->string('clientPersonalAddress');
             $table->string('clientOfficeAddress');
-            $table->string('createdBy');
             $table->string('clientNote');
+            $table->string('createdBy');
+            $table->unsignedBigInteger('statusType_id');
             $table->timestamps();
+
+            $table->foreign('documentType_id')
+            ->references('id')
+            ->on('MngDocumentType') 
+            ->onDelete('cascade'); 
+
+            $table->foreign('genderType_id')
+            ->references('id')
+            ->on('MngGenderType')
+            ->onDelete('cascade');
+
+            $table->foreign('statusType_id')
+            ->references('id')
+            ->on('MngStatusType')
+            ->onDelete('cascade'); 
         });
     }
 
