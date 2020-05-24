@@ -6,7 +6,7 @@
 <div class="dashboard-ecommerce">
     <div class="container-fluid dashboard-content">
         <div class="row">
-            <div class="col-xl-10">
+            <div class="col-xl-12">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header" id="top">
@@ -31,75 +31,117 @@
                         <div class="card">
                             <h5 class="card-header">Formulario Nuevo Cliente</h5>
                             <div class="card-body">
-                                <form>
+                                <form action="clientController" method="post">
                                     <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Nombres</label>
-                                            <input id="inputText3" type="text" class="form-control"> 
+                                            <input id="inputClientName" type="text" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
-                                            <label for="inputText3" class="col-form-label">Apellido</label>
-                                            <input id="inputText3" type="text" class="form-control">
+                                            <label for="inputText3" class="col-form-label">Apellidos</label>
+                                            <input id="inputClientLastName" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    </div>        
+                                    <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                        <div class="form-group">
+                                            <label for="inputText3" class="col-form-label">Fecha de Nacimiento</label>
+                                            <input id="inputClientDob" class="form-control" type="date">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                        <div class="form-group">
+                                            <label for="inputText3" class="col-form-label">Sexo</label>
+                                            <select class="form-control" id="inputClientGender">
+                                                <option>Por favor seleccione</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>                                        
+                                        </div>
+                                    </div>
+                                    </div>          
+                                    <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                        <div class="form-group">
+                                            <label for="inputText3" class="col-form-label">Tipo de Documento</label>
+                                            <select class="form-control" id="inputClientDocType">
+                                                <option>Por favor seleccione</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>                                          
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                        <div class="form-group">
+                                            <label for="inputText3" class="col-form-label">Numero de Documento</label>
+                                            <input id="inputDocNumber" type="text" class="form-control"> 
                                         </div>
                                     </div>
                                     </div>
+                                    <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                        <div class="form-group">
+                                            <label for="inputText3" class="col-form-label">E-mail</label>
+                                            <input id="inputClientEmail" type="text" class="form-control"> 
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                        <div class="form-group">
+                                            <label for="inputText3" class="col-form-label">Numero Domicilio</label>
+                                            <input id="inputClientPhoneNumb" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    </div>               
+                                    <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                        <div class="form-group">
+                                            <label for="inputText3" class="col-form-label">Numero Celular</label>
+                                            <input id="inputClientCellPhoneNumb" type="text" class="form-control"> 
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                        <div class="form-group">
+                                            <label for="inputText3" class="col-form-label">Notas</label>
+                                            <input id="inputClientNotes" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                        <div class="form-group">
+                                            <label for="inputText3" class="col-form-label">Direccion</label>
+                                            <textarea id="inputClientAddress1" type="text" class="form-control"></textarea> 
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                        <div class="form-group">
+                                            <label for="inputText3" class="col-form-label">Direccion(opcional)</label>
+                                            <textarea id="inputClientAddress2" type="text" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    &nbsp;
+                                    <div class="row">
+                                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
+                                        </div>
+                                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
+                                            <button class="btn btn-primary" type="submit">Guardar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
 
-                                    <div class="form-group">
-                                        <label for="inputText3" class="col-form-label">Nombres</label>
-                                        <input id="inputText3" type="text" class="form-control col-6"> 
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputText3" class="col-form-label">Apellido</label>
-                                        <input id="inputText3" type="text" class="form-control col-6">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail">Email address</label>
-                                        <input id="inputEmail" type="email" placeholder="name@example.com"
-                                            class="form-control">
-                                        <p>We'll never share your email with anyone else.</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputText4" class="col-form-label">Number Input</label>
-                                        <input id="inputText4" type="number" class="form-control" placeholder="Numbers">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputPassword">Password</label>
-                                        <input id="inputPassword" type="password" placeholder="Password"
-                                            class="form-control">
-                                    </div>
-                                    <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">File Input</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="3"></textarea>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="card-body border-top">
-                                <h3>Sizing</h3>
-                                <form>
-                                    <div class="form-group">
-                                        <label for="inputSmall" class="col-form-label">Small</label>
-                                        <input id="inputSmall" type="text" value=".form-control-sm"
-                                            class="form-control form-control-sm">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputDefault" class="col-form-label">Default</label>
-                                        <input id="inputDefault" type="text" value="Default input" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputLarge" class="col-form-label">Large</label>
-                                        <input id="inputLarge" type="text" value=".form-control-lg"
-                                            class="form-control form-control-lg">
-                                    </div>
-                                </form>
-                            </div>
+
+
+
                         </div>
                     </div>
                 </div>
@@ -107,5 +149,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection
