@@ -19,9 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('/clients', 'ClientsController@index')->name('clients');
-
-Route::get('clients/create', 'ClientsController@create')->name('create');
+Route::get('/clients/create', 'ClientsController@create')->name('clients');
 
 
 // Route::get('/clients/{client}', 'ClientsController@show');
