@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\DB;
+
 
 Route::get('/', function () {
     return view('auth/login');
@@ -21,6 +23,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/clients', 'ClientsController@store');
 Route::get('/clients/create', 'ClientsController@create')->name('clients');
+
+
+Route::get('/getGenderRequest', function(){
+    if(Request::ajax()){
+        
+        $gender = DB::select('select * from mngGenderType');
+
+        return Response::json($gender);
+    }
+});
+
+
+
 
 
 // Route::get('/clients/{client}', 'ClientsController@show');

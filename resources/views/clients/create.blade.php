@@ -31,9 +31,6 @@
                         <div class="card">
                             <h5 class="card-header">Formulario Nuevo Cliente</h5>
                             <div class="card-body">
-                            <div id="root">
-                                @{{ foo }}
-                            </div>
                             @include('inc.messages')
                                 <form action="/clients" method="POST">
                                     @csrf
@@ -62,11 +59,8 @@
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Sexo</label>
                                             <select class="form-control" id="inputClientGender" name="inputClientGender">
-                                                <option>Por favor seleccione</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option>Por favor seleccione </option>
+                                                <option v-for="option in options" v-bind:value="option.id">@{{ option.genderDescription }}</option>
                                             </select>                                        
                                         </div>
                                     </div>
@@ -151,18 +145,39 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+
 
 
 <script>
-    var root = new Vue({
-        el: '#root',
 
-        data:{
-            foo:'bar'
-        }
+    $(document).ready(function(){
+        var _this = this; // bind "this" to local var
+
+
+        $.get('/getGenderRequest', function(data){
+            var vue = new Vue({
+                el: '#inputClientGender',
+                data: {
+                    options:[]
+                }
+            })
+
+            for (var i = 0; i <= Object.keys(data).length; i++) {
+                var gender = {id:data[i]['id'], genderDescription:data[i]['genderDescription']};
+                console.log(_this);
+
+                _this.vue.data.options = gender;
+
+            }
+
+
+
+            
+        })
     })
+
 </script>
 
 
