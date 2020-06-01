@@ -47,9 +47,9 @@ class ClientsController extends Controller
 
     }
 
-    public function store($id)
+    public function store()
     {
-
+        dump(request()->all());
         //persist the new resource
 
     }

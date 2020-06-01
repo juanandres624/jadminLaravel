@@ -31,20 +31,23 @@
                         <div class="card">
                             <h5 class="card-header">Formulario Nuevo Cliente</h5>
                             <div class="card-body">
+                            <div id="root">
+                                @{{ foo }}
+                            </div>
                             @include('inc.messages')
-                                <form action="clientsController" method="post">
+                                <form action="/clients" method="POST">
                                     @csrf
                                     <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Nombres</label>
-                                            <input id="inputClientName" type="text" class="form-control"> 
+                                            <input name="inputClientName" id="inputClientName" type="text" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Apellidos</label>
-                                            <input id="inputClientLastName" type="text" class="form-control">
+                                            <input name="inputClientLastName" id="inputClientLastName" type="text" class="form-control">
                                         </div>
                                     </div>
                                     </div>        
@@ -52,13 +55,13 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Fecha de Nacimiento</label>
-                                            <input id="inputClientDob" class="form-control" type="date">
+                                            <input name="inputClientDob" id="inputClientDob" class="form-control" type="date">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Sexo</label>
-                                            <select class="form-control" id="inputClientGender">
+                                            <select class="form-control" id="inputClientGender" name="inputClientGender">
                                                 <option>Por favor seleccione</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -72,7 +75,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Tipo de Documento</label>
-                                            <select class="form-control" id="inputClientDocType">
+                                            <select class="form-control" id="inputClientDocType" name="inputClientDocType">
                                                 <option>Por favor seleccione</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -84,7 +87,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Numero de Documento</label>
-                                            <input id="inputDocNumber" type="text" class="form-control"> 
+                                            <input name="inputDocNumber" id="inputDocNumber" type="text" class="form-control"> 
                                         </div>
                                     </div>
                                     </div>
@@ -92,13 +95,13 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">E-mail</label>
-                                            <input id="inputClientEmail" type="text" class="form-control"> 
+                                            <input name="inputClientEmail" id="inputClientEmail" type="text" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Numero Domicilio</label>
-                                            <input id="inputClientPhoneNumb" type="text" class="form-control">
+                                            <input name="inputClientPhoneNumb" id="inputClientPhoneNumb" type="text" class="form-control">
                                         </div>
                                     </div>
                                     </div>               
@@ -106,13 +109,13 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Numero Celular</label>
-                                            <input id="inputClientCellPhoneNumb" type="text" class="form-control"> 
+                                            <input name="inputClientCellPhoneNumb" id="inputClientCellPhoneNumb" type="text" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Notas</label>
-                                            <input id="inputClientNotes" type="text" class="form-control">
+                                            <input name="inputClientNotes" id="inputClientNotes" type="text" class="form-control">
                                         </div>
                                     </div>
                                     </div>
@@ -120,13 +123,13 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Direccion</label>
-                                            <textarea id="inputClientAddress1" type="text" class="form-control"></textarea> 
+                                            <textarea name="inputClientAddress1" id="inputClientAddress1" type="text" class="form-control"></textarea> 
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             <label for="inputText3" class="col-form-label">Direccion(opcional)</label>
-                                            <textarea id="inputClientAddress2" type="text" class="form-control"></textarea>
+                                            <textarea name="inputClientAddress2" id="inputClientAddress2" type="text" class="form-control"></textarea>
                                         </div>
                                     </div>
                                     </div>
@@ -140,10 +143,6 @@
                                     </div>
                                 </form>
                             </div>
-
-
-
-
                         </div>
                     </div>
                 </div>
@@ -151,6 +150,20 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script>
+    var root = new Vue({
+        el: '#root',
+
+        data:{
+            foo:'bar'
+        }
+    })
+</script>
 
 
 @endsection
