@@ -13,7 +13,7 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('AsdClients', function (Blueprint $table) {
+        Schema::create('Clients', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('clientName');
             $table->string('clientLastName');

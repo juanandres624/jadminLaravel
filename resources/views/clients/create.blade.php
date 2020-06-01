@@ -31,7 +31,9 @@
                         <div class="card">
                             <h5 class="card-header">Formulario Nuevo Cliente</h5>
                             <div class="card-body">
-                                <form action="clientController" method="post">
+                            @include('inc.messages')
+                                <form action="clientsController" method="post">
+                                    @csrf
                                     <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
