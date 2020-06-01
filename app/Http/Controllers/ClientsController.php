@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Clients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class ClientsController extends Controller
@@ -51,8 +53,35 @@ class ClientsController extends Controller
 
     public function store()
     {
-        dump(request()->all());
+        // dump(request()->all());
         //persist the new resource
+
+        $client = new Clients();
+
+        $client->clientName = request('inputClientName');
+        $client->clientLastName = request('inputClientLastName');
+        $client->clientBirthDate = request('inputClientDob');
+        $client->genderType_id = request('inputClientGender');
+        $client->documentType_id = request('inputClientDocType');
+        $client->clientDocNumber = request('inputDocNumber');
+        $client->clientEmail = request('inputClientEmail');
+        $client->clientPhoneNumber = request('inputClientPhoneNumb');
+        $client->clientCellPhoneNumber = request('inputClientCellPhoneNumb');
+        $client->clientPersonalAddress = request('inputClientAddress1');
+        $client->clientOfficeAddress = request('inputClientAddress2');
+        $client->clientNote = request('inputClientNotes');
+        $client->createdBy = Auth::user()->id;
+        $client->statusType_id = 1;
+        $client->created_at = date('Y-m-d H:i:s');
+
+        $client->save();
+
+        return redirect('clients/create');
+
+
+
+
+
 
     }
 

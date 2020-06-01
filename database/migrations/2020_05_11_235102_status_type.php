@@ -27,6 +27,7 @@ class StatusType extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('MngStatusType');
+
     }
 }

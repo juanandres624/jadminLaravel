@@ -30,7 +30,22 @@ Route::get('/getGenderRequest', function(){
         
         $gender = DB::select('select * from mngGenderType');
 
-        return Response::json($gender);
+        if ($gender) {
+            return Response::json($gender);
+        }
+
+    }
+});
+
+Route::get('/getDocumentsRequest', function(){
+    if(Request::ajax()){
+        
+        $document = DB::select('select * from mngDocumentType');
+
+        if($document){
+            return Response::json($document);
+        }
+
     }
 });
 

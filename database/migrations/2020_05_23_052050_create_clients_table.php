@@ -18,7 +18,6 @@ class CreateClientsTable extends Migration
             $table->string('clientName');
             $table->string('clientLastName');
             $table->date('clientBirthDate');
-            $table->date('clientGender');
             $table->unsignedBigInteger('documentType_id');
             $table->unsignedBigInteger('genderType_id');
             $table->string('clientDocNumber',10)->unique();
@@ -28,7 +27,7 @@ class CreateClientsTable extends Migration
             $table->string('clientPersonalAddress');
             $table->string('clientOfficeAddress');
             $table->string('clientNote');
-            $table->string('createdBy');
+            $table->unsignedBigInteger('createdBy');
             $table->unsignedBigInteger('statusType_id');
             $table->timestamps();
 
@@ -45,6 +44,11 @@ class CreateClientsTable extends Migration
             $table->foreign('statusType_id')
             ->references('id')
             ->on('MngStatusType')
+            ->onDelete('cascade'); 
+
+            $table->foreign('createdBy')
+            ->references('id')
+            ->on('users')
             ->onDelete('cascade'); 
         });
     }

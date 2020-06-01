@@ -60,7 +60,6 @@
                                             <label for="inputText3" class="col-form-label">Sexo</label>
                                             <select class="form-control" id="inputClientGender" name="inputClientGender">
                                                 <option>Por favor seleccione </option>
-                                                <option v-for="option in options" v-bind:value="option.id">@{{ option.genderDescription }}</option>
                                             </select>                                        
                                         </div>
                                     </div>
@@ -71,10 +70,6 @@
                                             <label for="inputText3" class="col-form-label">Tipo de Documento</label>
                                             <select class="form-control" id="inputClientDocType" name="inputClientDocType">
                                                 <option>Por favor seleccione</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
                                             </select>                                          
                                         </div>
                                     </div>
@@ -145,7 +140,6 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
 
 
@@ -153,29 +147,30 @@
 <script>
 
     $(document).ready(function(){
-        var _this = this; // bind "this" to local var
 
+        $.get('/getGenderRequest', function(datagender){
 
-        $.get('/getGenderRequest', function(data){
-            var vue = new Vue({
-                el: '#inputClientGender',
-                data: {
-                    options:[]
-                }
-            })
+            for (var i = 0; i <= Object.keys(datagender).length; i++) {
+                var gender = {id:datagender[i]['id'], genderDescription:datagender[i]['genderDescription']};
 
-            for (var i = 0; i <= Object.keys(data).length; i++) {
-                var gender = {id:data[i]['id'], genderDescription:data[i]['genderDescription']};
-                console.log(_this);
+                $("#inputClientGender").append
+                ('<option value='+ gender.id+'>'+ gender.genderDescription+'</option>')
 
-                _this.vue.data.options = gender;
-
-            }
-
-
-
-            
+            }   
         })
+
+        $.get('/getDocumentsRequest', function(datadoc){
+
+            for (var i = 0; i <= Object.keys(datadoc).length; i++) {
+                var document = {id:datadoc[i]['id'], documentDescription:datadoc[i]['documentDescription']};
+
+                $("#inputClientDocType").append
+                ('<option value='+ document.id+'>'+ document.documentDescription+'</option>')
+
+            }   
+        })
+
+
     })
 
 </script>
